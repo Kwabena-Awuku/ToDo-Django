@@ -6,8 +6,7 @@ from todo import models
 from todo.models import TODOO
 from django.contrib.auth.decorators import login_required
 
-
-
+
 @login_required(login_url='/loginn')
 def home(request):
     return render(request, 'signup.html')
@@ -24,13 +23,7 @@ def signup(request):
         return redirect('/loginn')
     
     return render(request, 'signup.html')
-        
-     
-        
-        
-        
-        
-    
+           
 
 def loginn(request):
     if request.method == 'POST':
@@ -79,9 +72,7 @@ def edit_todo(request, srno):
 
     obj = models.TODOO.objects.get(srno=srno)
     return render(request, 'edit_todo.html', {'obj': obj})
-
-
-
+
 
 
 def signout(request):
